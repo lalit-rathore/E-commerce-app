@@ -1,14 +1,16 @@
 class Product < ApplicationRecord
-    belongs_to :category
-    
-    has_one_attached :image
+  belongs_to :category 
+
+  has_many :cart_items, dependent: :destroy
+  
+  has_one_attached :image
 
 
-    def self.search(title)
-        if title.blank?
-          all
-        else
-          where('name LIKE ?', "%#{title}%")
-        end
-      end
+  def self.search(title)
+    if title.blank?
+      all
+    else
+      where('name LIKE ?', "%#{title}%")
+    end
+  end
 end

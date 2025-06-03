@@ -1,0 +1,17 @@
+<h1>Your Cart</h1>
+
+<% @cart_items&.each do |item| %>
+    
+    <%= item.product.name%>
+    Quantity <%= item.quantity %>
+    Total <%= number_to_currency(item.quantity * item.product.price) %>
+
+    <%= form_with(model: item, url: cart_item_path(item), method: :patch) do |form| %>
+        <%= form.number_field :quantity, value: item.quantity, min: 1 %>
+        <%= form.submit "Update" %>
+    <% end %>
+        
+    <%= button_to "Remove", cart_item_path(item), method: :delete %>
+<%end%>
+    
+ 
