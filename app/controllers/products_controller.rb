@@ -1,19 +1,17 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [ :index, :show ]
   before_action :require_admin, except: [:index, :show]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:name].present?
       @products = Product.search(params[:name])
-    else 
+    else
       @products = Product.all
     end
   end
 
-
-  def show
-  end
+  def show; end
 
   def new
     @product = Product.new
@@ -28,8 +26,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def edit; 
-  end
+  def edit; end
 
   def update
     if @product.update(product_params)
@@ -55,6 +52,6 @@ class ProductsController < ApplicationController
   end
 
   def require_admin
-    redirect_to root_path, alert: "Admins only." unless current_user&.admin?
+    redirect_to root_path, alert: 'Admins only.' unless current_user&.admin?
   end
 end
