@@ -8,18 +8,18 @@ class CartItemsController < ApplicationController
         item.quantity ||= 0
         item.quantity += params[:quantity].to_i
         item.save!
-        redirect_to cart_path , notice: "Item added to cart"   
+        redirect_to cart_path, notice: "Item added to cart"   
     end
 
     def update
         item = @cart.cart_items.find(params[:id])
         item.update(quantity: params[:quantity])
-        redirect_to cart_path , notice: "Item updated"
+        redirect_to cart_path, notice: "Item updated"
     end
 
     def destroy
         @cart.cart_items.find(params[:id])&.destroy
-        redirect_to cart_path , notice: "Item Removed"
+        redirect_to cart_path, notice: "Item Removed"
     end
 
     private

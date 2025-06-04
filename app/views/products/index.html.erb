@@ -3,16 +3,18 @@
   <%= link_to "New Product", new_product_path %>
 <% end %>
 
-<%= form_tag("/products", method: "get") do %>
-    <%= label_tag(:title, "Search for:") %>
-    <%= text_field_tag(:name, params[:name]) %>
-    <%= submit_tag("Search") %>
-<% end %>
+<div class="d-flex justify-content-center">
+  <%= form_tag("/products", method: "get") do %>
+     <%= label_tag(:title, "Search for:") %>
+     <%= text_field_tag(:name, params[:name]) %>
+     <%= submit_tag("Search") %>
+  <% end %>
+</div>
 
 <%= link_to "show cart item" ,cart_path %>
-<ul style: "display: flex: flex-wrap: wrap; gap: 20px;">
+<ul class="d-flex flex-wrap" >
   <% @products.each do |product| %>
-    <li>
+    <li class="m-3 p-4">
         <%= link_to product.name, product_path(product) %><br>
         <%= number_to_currency(product.price) %><br>
          <%= truncate(product.description, length: 100) %>
@@ -46,3 +48,5 @@
     <%= link_to "Login" ,new_user_session_path %>
      <%= link_to "Sign up" ,new_user_registration_path %>
  <%end%>
+
+
