@@ -21,16 +21,16 @@
 
 <ul class="d-flex flex-wrap justify-content-center list-unstyled">
   <% @products.each do |product| %>
-    <div class="card m-3 text-center" style="width: 350px">
+    <div class="card m-3 text-first" style="width: 350px">
        <li class="m-3 p-4">
          <% if product.image.attached? %>
-            <div >
-              <%= image_tag product.image , style: "max-width: 250px" %>
+            <div>
+              <%= image_tag product.image, style: "max-width: 250px"%>
             </div>
          <%end%>
           <h5 class="card-title"> <%= link_to product.name, product_path(product) %></h5>
-           Price :- <%= number_to_currency(product.price) %><br>
-          Description  :- <%= truncate(product.description, length: 100) %>
+           Price: <%= number_to_currency(product.price) %><br>
+          Description: <%= truncate(product.description, length: 100) %>
     
            <%= form_with url: cart_items_path do %>
               <%= hidden_field_tag :product_id , product.id%>
@@ -50,13 +50,13 @@
 
 
 <% if user_signed_in? %>
-  <div class="btn bg-black m-5">
+  <div class="btn  m-5">
     <%= button_to "Logout" , destroy_user_session_path, method: :delete ,data: {turbo_method: :delete} %>
   </div>
 
  <% else %>
-    <div class="d-flex justity-content-center m-4">
-        <div> <%= link_to "Login" , new_user_session_path, class: 'text-dark text-decoration-none' %></div>
-        <%= link_to "Sign up" ,new_user_registration_path %>
+    <div class="d-flex justity-content-center align-items-center m-5">
+        <div class="border m-4 p-1"> <%= link_to "Login" , new_user_session_path, class: 'text-dark text-decoration-none' %></div>
+        <div class="border p-1"><%= link_to "Sign up" ,new_user_registration_path, class: 'text-dark text-decoration-none' %></dvi>
     </div>
  <%end%>

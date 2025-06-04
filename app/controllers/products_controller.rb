@@ -11,6 +11,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def buy
+    @product = Product.find(params[:id])
+    render 'buy_success'
+  end
+
   def show; end
 
   def new
