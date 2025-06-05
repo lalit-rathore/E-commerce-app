@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   belongs_to :category
 
   has_many :cart_items, dependent: :destroy
-
+  has_many :reviews, dependent: :destroy
   has_one_attached :image
 
   def self.search(title)

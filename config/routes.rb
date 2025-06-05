@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :products do
+    resources :reviews, only: [:create]
     member do
-      post :buy
+      get 'buy'
     end
   end
 
@@ -20,5 +21,4 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  # root "posts#index"
 end

@@ -1,14 +1,14 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: [ :index, :show ]
-  before_action :require_admin, except: [:index, :show]
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :require_admin, except: %i[index show buy]
+  before_action :set_product, only: %i[show edit update destroy]
 
   def index
-    if params[:name].present?
-      @products = Product.search(params[:name])
-    else
-      @products = Product.all
-    end
+    @products = if params[:name].present?
+                  Product.search(params[:name])
+                else
+                  Product.all
+                end
   end
 
   def buy

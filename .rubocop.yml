@@ -12,3 +12,6 @@ Style/Documentation:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Lint/Syntax:
+  Enabled: false

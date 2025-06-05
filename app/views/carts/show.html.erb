@@ -1,17 +1,24 @@
-<h1>Your Cart</h1>
+<h1 class="">Your Cart</h1>
 
 <% @cart_items&.each do |item| %>
+    <div class="container d-flex  align-items-center">
+    <div class="card col-3 p-3 m-2">
+      <%= item.product.name%>
+      Quantity <%= item.quantity %>
+      Total <%= number_to_currency(item.quantity * item.product.price) %>
     
-    <%= item.product.name%>
-    Quantity <%= item.quantity %>
-    Total <%= number_to_currency(item.quantity * item.product.price) %>
-
-    <%= form_with(model: item, url: cart_item_path(item), method: :patch) do |form| %>
-        <%= form.number_field :quantity, value: item.quantity, min: 1 %>
-        <%= form.submit "Update" %>
-    <% end %>
+       <%= form_with(model: item, url: cart_item_path(item), method: :patch) do |form| %>
+          <%= form.number_field :quantity, value: item.quantity, min: 1, style: "width:40px;" %>
+          <%= form.submit "Update" %>
+        <% end %>
         
-    <%= button_to "Remove", cart_item_path(item), method: :delete %>
+        <%= button_to "Remove", cart_item_path(item), method: :delete %>
+    </div>
+ </div>
 <%end%>
+
+<div class="m-3 ">
+ <button type="button" class="btn btn-secondary"><%= link_to "Back" , products_path,class:"text-decoration-none text-black" %></button>
+</div>
     
  
