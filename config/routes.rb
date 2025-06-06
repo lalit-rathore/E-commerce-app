@@ -7,7 +7,8 @@ Rails.application.routes.draw do
       get 'buy'
     end
   end
-
+  
+  resources :orders, only: [ :create, :show ]
   resource :cart, only: [ :show ]
   resources :cart_items, only: [ :create, :update, :destroy ]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

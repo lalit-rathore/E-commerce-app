@@ -1,5 +1,4 @@
 <h1 class="">Your Cart</h1>
-
 <% @cart_items&.each do |item| %>
     <div class="container d-flex  align-items-center">
     <div class="card col-3 p-3 m-2">
@@ -16,6 +15,8 @@
     </div>
  </div>
 <%end%>
+
+<%= button_to "Order now", orders_path, method: :post %>
 
 <div class="m-3 ">
  <button type="button" class="btn btn-secondary"><%= link_to "Back" , products_path,class:"text-decoration-none text-black" %></button>
