@@ -12,3 +12,5 @@
 Category.create(name: "Electronics")
 Category.create(name: "Clothing")
 Category.create(name: "Books")
+
+
