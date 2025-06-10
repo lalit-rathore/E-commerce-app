@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "dashboards/index"
+
   devise_for :users
 
   resources :products do
@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   resources :orders, only: [ :create, :show ]
   resource :cart, only: [ :show ]
   resources :cart_items, only: [ :create, :update, :destroy ]
+
+  namespace :admin do 
+    resources :dashboards, only: [:index]
+    resources :products
+  end 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root "products#index"
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

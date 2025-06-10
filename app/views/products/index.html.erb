@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light text-black fixed-top " style="background-color: #e3f2fd;" >
+<nav class="navbar navbar-light text-black fiexd-top " style="background-color: #e3f2fd;" >
   <h1 class="p-1">Products</h1>
 
   <div class="d-flex justify-content-center">
@@ -26,14 +26,14 @@
   <%end%>
 </nav>
       
-<div class="d-flex justify-content-between gap-4 m-3 mt-5">
+<div class="d-flex justify-content-between gap-4 m-3 ">
   <% if current_user&.admin? %>
     <div >
-      <button type="button" class="btn btn-primary">   <%= link_to "Dashboard",dashboards_index_path, class: 'text-white text-decoration-none' %></button> 
+      <button type="button" class="btn btn-primary">   <%= link_to "Dashboard",admin_dashboards_path, class: 'text-white text-decoration-none' %></button> 
       <button type="button" class="btn btn-primary"> <%= link_to "New roduct", new_product_path, class: 'text-white text-decoration-none'%></button> 
     </div>
   <% end %>
-  <button type="button" class="btn btn-primary"> <%= link_to "show cart item" ,cart_path, class: 'text-white text-decoration-none' %></button> 
+  <button type="button" class="btn  btn-primary"> <%= link_to "show cart item" ,cart_path, class: 'text-white text-decoration-none' %></button> 
 </div>
 
 

@@ -23,8 +23,12 @@
 
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
+    <% if notice.present? %>
+      <p class="alert alert-info mt-2"><%= notice %></p>
+    <% end %>
+    <% if alert.present? %>
+      <p class="alert alert-warning mt-2"><%= alert %></p>
+    <% end %> 
   </body>
 </html>
