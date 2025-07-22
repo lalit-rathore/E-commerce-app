@@ -85,7 +85,7 @@ GEM
       msgpack (~> 1.2)
     bootstrap (5.3.5)
       popper_js (>= 2.11.8, < 3)
-    brakeman (7.0.2)
+    brakeman (7.1.0)
       racc
     builder (3.3.0)
     capybara (3.40.0)
@@ -125,7 +125,19 @@ GEM
       raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    google-protobuf (4.31.1)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-aarch64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-aarch64-linux-musl)
+      bigdecimal
+      rake (>= 13)
     google-protobuf (4.31.1-x86_64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-x86_64-linux-musl)
       bigdecimal
       rake (>= 13)
     i18n (1.14.7)
@@ -300,7 +312,17 @@ GEM
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
     rubyzip (2.4.1)
+    sass-embedded (1.89.1-aarch64-linux-gnu)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.1-aarch64-linux-musl)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.1-arm-linux-gnueabihf)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.1-arm-linux-musleabihf)
+      google-protobuf (~> 4.31)
     sass-embedded (1.89.1-x86_64-linux-gnu)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.89.1-x86_64-linux-musl)
       google-protobuf (~> 4.31)
     securerandom (0.4.1)
     selenium-webdriver (4.33.0)
